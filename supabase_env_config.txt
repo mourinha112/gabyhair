@@ -1,0 +1,12 @@
+# Configuração para o Supabase
+# Substitua o conteúdo do seu arquivo .env atual por estas linhas (ou ajuste a variável DATABASE_URL)
+
+# Copie a "Connection String" (URI) do painel do Supabase e cole abaixo
+# Ela deve se parecer com: postgresql://postgres:[SUA-SENHA]@db.[SEU-PROJETO].supabase.co:5432/postgres
+
+DATABASE_URL="postgresql://postgres:[SUA-SENHA]@[HOST]:5432/postgres"
+
+# Se você tiver problemas de conexão "Too many connections", use a porta 6543 (Session Pooler) ou adicione ?pgbouncer=true
+# Exemplo com PgBouncer:
+# DATABASE_URL="postgresql://postgres:[SUA-SENHA]@[HOST]:6543/postgres?pgbouncer=true"
+
