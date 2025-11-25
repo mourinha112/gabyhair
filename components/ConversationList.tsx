@@ -17,6 +17,7 @@ interface ConversationListProps {
   conversations: Conversation[]
   onSelectConversation: (id: string, clientName: string) => void
   variant: 'waiting' | 'active' | 'closed'
+  waitingCount?: number
 }
 
 export default function ConversationList({
