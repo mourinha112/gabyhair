@@ -455,7 +455,7 @@ export default function ChatInterface({
       return (
         <div>
           <img
-            src={message.fileUrl}
+            src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`}
             alt="Imagem enviada"
             className="max-w-full rounded-lg mb-1"
             style={{ maxHeight: '300px' }}
@@ -473,7 +473,7 @@ export default function ChatInterface({
       return (
         <div>
           <video
-            src={message.fileUrl}
+            src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`}
             controls
             className="max-w-full rounded-lg mb-1"
             style={{ maxHeight: '300px' }}
@@ -490,7 +490,7 @@ export default function ChatInterface({
     if (message.type === 'audio' && message.fileUrl) {
       return (
         <div className="flex items-center space-x-2">
-          <audio src={message.fileUrl} controls className="flex-1" />
+          <audio src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`} controls className="flex-1" />
         </div>
       )
     }
