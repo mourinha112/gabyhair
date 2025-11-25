@@ -70,7 +70,8 @@ export default function ConversationList({
         text: 'NOVO',
         bg: 'bg-red-500',
         animate: 'animate-pulse'
-      }
+      },
+      opacity: ''
     },
     active: {
       gradient: 'from-green-500 to-emerald-500',
@@ -87,7 +88,8 @@ export default function ConversationList({
         text: 'ATIVO',
         bg: 'bg-green-500',
         animate: ''
-      }
+      },
+      opacity: ''
     },
     closed: {
       gradient: 'from-gray-400 to-gray-500',
