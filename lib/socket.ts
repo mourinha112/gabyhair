@@ -14,7 +14,11 @@ export const initSocket = (httpServer: HTTPServer) => {
     cors: {
       origin: '*',
       methods: ['GET', 'POST'],
+      credentials: true,
     },
+    transports: ['websocket', 'polling'],
+    pingTimeout: 60000,
+    pingInterval: 25000,
   })
 
   // Armazenar no global para persistir em hot-reloads

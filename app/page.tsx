@@ -47,15 +47,17 @@ export default function Home() {
           socketRef.current.close()
         }
 
-        const newSocket = io(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3000', {
+        const newSocket = io(process.env.NEXT_PUBLIC_SOCKET_URL || window.location.origin, {
           query: {
             conversationId: clientInfo.conversationId,
             type: 'client',
           },
+          transports: ['websocket', 'polling'],
           reconnection: true,
           reconnectionDelay: 1000,
           reconnectionDelayMax: 5000,
           reconnectionAttempts: Infinity,
+          timeout: 20000,
         })
 
         newSocket.on('connect', () => {
