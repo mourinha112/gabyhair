@@ -121,46 +121,46 @@ export default function ConversationList({
           
           <div className={`bg-white ${currentConfig.opacity || ''}`}>
             {conversations.map((conversation) => (
-              <div
-                key={conversation.id}
-                onClick={() =>
-                  onSelectConversation(conversation.id, conversation.clientName)
-                }
+            <div
+              key={conversation.id}
+              onClick={() =>
+                onSelectConversation(conversation.id, conversation.clientName)
+              }
                 className={`px-4 py-4 border-b border-gray-200 cursor-pointer ${currentConfig.hover} transition-all border-l-4 ${currentConfig.border}`}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1 min-w-0">
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex-1 min-w-0">
                     <div className="flex items-center space-x-2 mb-1">
                       <h3 className="font-bold text-gray-900 truncate">
-                        {conversation.clientName}
-                      </h3>
+                      {conversation.clientName}
+                    </h3>
                       <span className={`flex-shrink-0 text-white text-xs font-semibold px-2.5 py-1 rounded-full ${currentConfig.tag.bg} ${currentConfig.tag.animate}`}>
                         {variant === 'closed' ? getStatusLabel(conversation.status).toUpperCase() : currentConfig.tag.text}
-                      </span>
-                    </div>
+                    </span>
+                  </div>
                     <p className="text-sm text-gray-600 truncate mb-1">
                       📞 {conversation.clientPhone}
-                    </p>
-                    {conversation.lastMessage && (
+                  </p>
+                  {conversation.lastMessage && (
                       <p className="text-sm text-gray-700 truncate font-medium">
-                        {conversation.lastMessage}
-                      </p>
-                    )}
-                  </div>
-                  <div className="ml-4 text-right">
-                    <p className="text-xs font-semibold text-gray-600">
-                      {formatTime(conversation.lastMessageTime)}
+                      {conversation.lastMessage}
                     </p>
-                    {conversation.unreadCount && conversation.unreadCount > 0 && (
+                  )}
+                </div>
+                <div className="ml-4 text-right">
+                    <p className="text-xs font-semibold text-gray-600">
+                    {formatTime(conversation.lastMessageTime)}
+                  </p>
+                  {conversation.unreadCount && conversation.unreadCount > 0 && (
                       <span className="inline-block mt-1 bg-whatsapp-green text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        {conversation.unreadCount}
-                      </span>
-                    )}
-                  </div>
+                      {conversation.unreadCount}
+                    </span>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full text-gray-500">

@@ -81,26 +81,26 @@ export async function POST(
     // Enviar via WebSocket
     const io = getIO()
     if (io) {
-      try {
-        io.to(`conversation:${params.id}`).emit('message', {
-          id: message.id,
-          content: message.content,
-          type: message.type,
-          fileUrl: message.fileUrl,
-          fileName: message.fileName,
-          fileSize: message.fileSize,
-          sender: message.sender,
-          createdAt: message.createdAt.toISOString(),
-        })
+    try {
+      io.to(`conversation:${params.id}`).emit('message', {
+        id: message.id,
+        content: message.content,
+        type: message.type,
+        fileUrl: message.fileUrl,
+        fileName: message.fileName,
+        fileSize: message.fileSize,
+        sender: message.sender,
+        createdAt: message.createdAt.toISOString(),
+      })
 
-        // Notificar atendentes
-        io.to('attendants').emit('conversation-updated', {
-          id: params.id,
+      // Notificar atendentes
+      io.to('attendants').emit('conversation-updated', {
+        id: params.id,
           lastMessage: message.content,
-          lastMessageTime: new Date().toISOString(),
-        })
-      } catch (socketError) {
-        console.error('Erro ao enviar via socket:', socketError)
+        lastMessageTime: new Date().toISOString(),
+      })
+    } catch (socketError) {
+      console.error('Erro ao enviar via socket:', socketError)
       }
     } else {
       console.warn('Socket.IO não está inicializado. Mensagem salva, mas não será enviada em tempo real.')

@@ -137,7 +137,7 @@ export const getIO = (): SocketIOServer | null => {
   }
   // Depois tenta usar a variável local
   if (io) {
-    return io
+  return io
   }
   // Retorna null se não estiver inicializado (não lança erro)
   return null

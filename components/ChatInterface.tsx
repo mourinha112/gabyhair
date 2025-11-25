@@ -517,25 +517,25 @@ export default function ChatInterface({
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <svg
-                className="w-6 h-6 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            <svg
+              className="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                clipRule="evenodd"
+              />
+            </svg>
             )}
           </div>
           <div className="flex-1">
             <h1 className="font-semibold text-lg">{displayName}</h1>
             <div className="flex items-center space-x-2">
-              <p className="text-xs text-white text-opacity-90">
-                {isClient ? (isTyping ? 'digitando...' : 'online') : 'online'}
-              </p>
+            <p className="text-xs text-white text-opacity-90">
+              {isClient ? (isTyping ? 'digitando...' : 'online') : 'online'}
+            </p>
               {!isClient && (
                 <>
                   <span className="text-xs text-white text-opacity-70">•</span>
