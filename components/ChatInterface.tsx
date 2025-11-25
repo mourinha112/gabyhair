@@ -60,6 +60,7 @@ export default function ChatInterface({
 
     // Carregar status da conversa
     if (!isClient) {
+      console.log('Versão com API de Uploads: 1.0') // Log de confirmação
       fetch(`/api/conversations/${conversationId}`)
         .then((res) => res.json())
         .then((data) => {
@@ -455,7 +456,7 @@ export default function ChatInterface({
       return (
         <div>
           <img
-            src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`}
+            src={`/api/uploads/${message.fileUrl.replace(/^\/uploads\//, '').replace(/^\//, '')}`}
             alt="Imagem enviada"
             className="max-w-full rounded-lg mb-1"
             style={{ maxHeight: '300px' }}
@@ -473,7 +474,7 @@ export default function ChatInterface({
       return (
         <div>
           <video
-            src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`}
+            src={`/api/uploads/${message.fileUrl.replace(/^\/uploads\//, '').replace(/^\//, '')}`}
             controls
             className="max-w-full rounded-lg mb-1"
             style={{ maxHeight: '300px' }}
@@ -490,7 +491,7 @@ export default function ChatInterface({
     if (message.type === 'audio' && message.fileUrl) {
       return (
         <div className="flex items-center space-x-2">
-          <audio src={`/api/uploads${message.fileUrl.replace('/uploads', '')}`} controls className="flex-1" />
+          <audio src={`/api/uploads/${message.fileUrl.replace(/^\/uploads\//, '').replace(/^\//, '')}`} controls className="flex-1" />
         </div>
       )
     }
